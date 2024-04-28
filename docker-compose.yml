@@ -1,0 +1,74 @@
+version: '3.8'
+
+services:
+  authentication:
+    image: dineshwork/cv-speedx:s1v1  # Replace 'yourusername' with your Docker Hub username
+    ports:
+      - "5505:80"
+    environment:
+      FLASK_APP: authentication.py
+      FLASK_ENV: development
+      DB_HOST: aws-manual-cv-speedx-lb1-605253774.us-east-2.elb.amazonaws.com
+      DB_USER: root
+      DB_PASSWORD: root
+      DB_NAME: test_db
+      DB_PORT: 3306
+      FLASK_PORT: 5505
+
+  display_models:
+    image: dineshwork/cv-speedx:s2v1
+    ports:
+      - "5006:80"
+    environment:
+      FLASK_APP: display_models.py
+      FLASK_ENV: development
+      DB_HOST: aws-manual-cv-speedx-lb1-605253774.us-east-2.elb.amazonaws.com
+      DB_USER: root
+      DB_PASSWORD: root
+      DB_NAME: models
+      DB_PORT: 3306
+      FLASK_PORT: 5006
+
+  display_schema:
+    image: dineshwork/cv-speedx:s3v1
+    ports:
+      - "5000:80"
+    environment:
+      FLASK_APP: display_schema.py
+      FLASK_ENV: development
+      DB_HOST: aws-manual-cv-speedx-lb1-605253774.us-east-2.elb.amazonaws.com
+      DB_USER: root
+      DB_PASSWORD: root
+      DB_PORT: 3306
+      FLASK_PORT: 5000
+
+
+  display_solution:
+    image: dineshwork/cv-speedx:s4v1
+    ports:
+      - "5005:80"
+    environment:
+      FLASK_APP: display_solution.py
+      FLASK_ENV: development
+      DB_HOST: aws-manual-cv-speedx-lb1-605253774.us-east-2.elb.amazonaws.com
+      DB_USER: root
+      DB_PASSWORD: root
+      DB_NAME: test_db
+      DB_PORT: 3306
+      FLASK_PORT: 5005
+
+  insuranceapis_swagger:
+    image: dineshwork/cv-speedx:s5v1
+    ports:
+      - "5050:80"
+    environment:
+      FLASK_APP: insuranceapis_swagger.py
+      FLASK_ENV: development
+      DB_HOST: aws-manual-cv-speedx-lb1-605253774.us-east-2.elb.amazonaws.com
+      DB_USER: root
+      DB_PASSWORD: root
+      DB_NAME: techinsurance
+      DB_PORT: 3306
+      FLASK_PORT: 5050
+
+  
