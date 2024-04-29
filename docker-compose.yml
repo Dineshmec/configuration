@@ -2,13 +2,13 @@ version: '3.8'
 
 services:
   authentication:
-    image: dineshwork/cv-speedx:s1v1  # Replace 'yourusername' with your Docker Hub username
+    image: dineshwork/cv-speedx:service1v1  # Replace 'yourusername' with your Docker Hub username
     ports:
       - "5505:5505"
     environment:
       FLASK_APP: authentication.py
       FLASK_ENV: development
-      DB_HOST: 172.31.122.215
+      DB_HOST: 0.0.0.0
       DB_USER: root
       DB_PASSWORD: ConceptVine$@SX#21
       DB_NAME: test_db
@@ -16,13 +16,13 @@ services:
       FLASK_PORT: 5505
 
   display_models:
-    image: dineshwork/cv-speedx:s2v1
+    image: dineshwork/cv-speedx:service2v1
     ports:
       - "5006:5006"
     environment:
       FLASK_APP: display_models.py
       FLASK_ENV: development
-      DB_HOST: 172.31.122.215
+      DB_HOST: 0.0.0.0
       DB_USER: root
       DB_PASSWORD: ConceptVine$@SX#21 
       DB_NAME: models
@@ -30,13 +30,13 @@ services:
       FLASK_PORT: 5006
 
   display_schema:
-    image: dineshwork/cv-speedx:s3v1
+    image: dineshwork/cv-speedx:service3v1
     ports:
       - "5000:5000"
     environment:
       FLASK_APP: display_schema.py
       FLASK_ENV: development
-      DB_HOST: 172.31.122.215
+      DB_HOST: 0.0.0.0
       DB_USER: root
       DB_PASSWORD: ConceptVine$@SX#21
       DB_PORT: 3306
@@ -44,13 +44,13 @@ services:
 
 
   display_solution:
-    image: dineshwork/cv-speedx:s4v1
+    image: dineshwork/cv-speedx:service4v1
     ports:
       - "5005:5005"
     environment:
       FLASK_APP: display_solution.py
       FLASK_ENV: development
-      DB_HOST: 172.31.122.215
+      DB_HOST: 0.0.0.0
       DB_USER: root
       DB_PASSWORD: ConceptVine$@SX#21
       DB_NAME: test_db
@@ -58,13 +58,13 @@ services:
       FLASK_PORT: 5005
 
   insuranceapis_swagger:
-    image: dineshwork/cv-speedx:s5v1
+    image: dineshwork/cv-speedx:service5v1
     ports:
       - "5050:5050"
     environment:
       FLASK_APP: insuranceapis_swagger.py
       FLASK_ENV: development
-      DB_HOST: 172.31.122.215
+      DB_HOST: 0.0.0.0
       DB_USER: root
       DB_PASSWORD: ConceptVine$@SX#21
       DB_NAME: techinsurance
