@@ -22,7 +22,7 @@ services:
     environment:
       FLASK_APP: display_models.py
       FLASK_ENV: development
-      DB_HOST: 0.0.0.0
+      DB_HOST: 127.0.0.1
       DB_USER: root
       DB_PASSWORD: ConceptVine$@SX#21 
       DB_NAME: models
